@@ -15,7 +15,7 @@
 publishGitbook <- function(repo, 
 						   out.dir=paste0(getwd(), '/_book'),
 						   message='Update built gitbook') {
-	test <- system('which git', ignore.stderr=TRUE, ignore.stdout=TRUE, show.output.on.console=FALSE)
+	test <- system('git --version', ignore.stderr=TRUE, ignore.stdout=TRUE, show.output.on.console=FALSE)
 	if(test != 0) { stop('Git does not appear to be installed.')}
 	cmd <- paste0(
 		"cd ", out.dir, " \n",
