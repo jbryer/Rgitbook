@@ -1,0 +1,16 @@
+\name{initGitbook}
+\alias{initGitbook}
+\title{Create files and folders based on contents of SUMMARY.md.}
+\usage{
+  initGitbook(dir = getwd())
+}
+\arguments{
+  \item{dir}{source directory for the Gitbook.}
+}
+\description{
+  This first calls system command \code{gitbook init} but
+  then will change the all the file extensions from
+  \code{.md} to \code{.Rmd} excluding \code{SUMMARY.md} and
+  \code{README.md}.
+}
+

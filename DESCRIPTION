@@ -1,0 +1,31 @@
+Package: Rgitbook
+Type: Package
+Title: Gitbook Projects with R Markdown
+Version: 0.9
+Date: 2014-04-20
+Author: Jason Bryer <jason@bryer.org>
+Maintainer: Jason Bryer <jason@bryer.org>
+URL: http://jason.bryer.org/gitbook, http://github.com/jbryer/gitbook
+BugReports: https://github.com/jbryer/gitbook/issues
+Description: R package to manage Gitbook.io projects with R Markdown and
+    MathJax support.
+License: GPL
+LazyLoad: yes
+VignetteBuilder: knitr
+Depends:
+    R (>= 3.0)
+Imports:
+    utils,knitr
+Suggests:
+    devtools
+Collate:
+    'buildGitbook.R'
+    'buildRmd.R'
+    'checkForGitbook.R'
+    'gitbookInfo.R'
+    'initGitbook.R'
+    'newGitbook.R'
+    'openGitbook.R'
+    'publishGitbook.R'
+    'installGitbook.R'
+    'Rgitbook-package.R'

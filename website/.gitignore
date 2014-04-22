@@ -1,0 +1,6 @@
+.Rproj.user
+_book/
+.rmdbuild.Rda
+*.DS_Store
+log/
+.Rhistory

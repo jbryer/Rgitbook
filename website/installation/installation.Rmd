@@ -1,0 +1,30 @@
+```{r knitsetup, echo=FALSE, results='hide', warning=FALSE, message=FALSE, cache=FALSE}
+opts_knit$set(base.dir='./', fig.path='', out.format='md')
+opts_chunk$set(prompt=TRUE, comment='', results='markup')
+# See yihui.name/knitr/options for more Knitr options.
+##### Put other setup R code here
+
+```
+
+# Installation
+
+The `gitbook` R package is currently avaiable on [Github](http://github.com). The `devtools` package provides a function to install R packages directly from github.
+
+```{r installPackage, eval=FALSE}
+devtools::install_github('jbryer/Rgitbook')
+```
+
+The [Gitbook.io](http://gitbook.io) framework is built using [Node.js](http://nodejs.org/). Installers are available for most major platforms and can be downloaded from the Node.js website at [http://nodejs.org/download/](http://nodejs.org/download/).
+
+Once Node.js is installed the `installGitbook` function will attempt to download and install the Gitbook.io framework.
+
+```{r installGitbook, eval=FALSE}
+installGitbook()
+```
+
+We can verify that Gitbook is installed using the `checkForGitbook` function.
+
+```{r verifyinstall}
+checkForGitbook()
+```
+

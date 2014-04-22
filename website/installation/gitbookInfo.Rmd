@@ -1,0 +1,35 @@
+```{r knitsetup, echo=FALSE, results='hide', warning=FALSE, message=FALSE, cache=FALSE}
+opts_knit$set(base.dir='./', fig.path='', out.format='md')
+opts_chunk$set(prompt=TRUE, comment='', results='markup')
+# See yihui.name/knitr/options for more Knitr options.
+##### Put other setup R code here
+
+```
+
+# Checking the Installed Version of Gitbook
+
+Gitbook.io is under active development. The `gitbookInfo` function will indicate whether a new version of Gitbook is available.
+
+```{r gitbookInfo}
+gitbookInfo()
+```
+
+If a new version is available, the `installGitbook` function will install the latest version.
+
+```{r installgitbook, eval=FALSE}
+installGitbook()
+```
+
+Additionally, the `checkForGitbook` function will also indicate whether Gitbook is installed and available but will not check the [Node Package Modules](https://www.npmjs.org/) website for the currently available version.
+
+```{r checkForGitbook}
+checkForGitbook()
+```
+
+The `quiet` parameter will not print any messages. The function returns a logical indicating whether Gitbook is available or not. This may be useful if you are automating your Gitbook development.
+
+```{r checkForGitbookQuiet}
+isAvailable <- checkForGitbook(quiet=TRUE)
+isAvailable
+```
+

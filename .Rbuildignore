@@ -1,0 +1,6 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+_book
+website
+Rgitbook.dev.R
+README.md
