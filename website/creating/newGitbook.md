@@ -1,6 +1,8 @@
 
 
 
+# Creating a New Gitbook
+
 Creating a new Gitbook is a two step processes. First, the `newGitbook` function will create the initial set of files in the directory specified.
 
 
