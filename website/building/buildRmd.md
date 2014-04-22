@@ -1,3 +1,22 @@
 
 
 
+# Building R Markdown Files
+
+NOTE: The `buildRmd` function will be called from the `buildGitbook` function by default and therefore it is not necessary to call this function directly. However, this page will describe the process.
+
+The first step in building a Gitbook is to convert all R Markdown files to markdown. The `buildRmd` function will locate each `.Rmd` file in your project and build it using the `knitr` package. This function will also create a `.rmdbuild` file in the root of your Gitbook website. This file contains information about the last build. In short, this allows the `buildRmd` file to only rebuild files that have changed since the last build therefore substantially decreasing the amount of time it takes to rebuild your book. 
+
+
+```r
+> buildRmd()
+```
+
+
+There are a number of parameters for the `buildRmd` function.
+
+* `dir` (default is `getwd()`) - Specifies the directory containing your book source files.
+* `clean` (defualt is `FALSE`) - If `TRUE`, all `.Rmd` files will be built even if they have not changed since the last build.
+* `log.dir` - If specified, the output from the `knit` process will be saved to a log file instead of the console. A seperate log file for each `.Rmd` file will be created.
+* `log.ext` (default is `.txt`) - The file extension for log files if used.
+* `...` Other parmaters passed to the `knit` function.

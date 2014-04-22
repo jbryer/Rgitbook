@@ -33,3 +33,18 @@ gitbook is installed and available
 ```
 
 
+### If Gitbook Installation Fails
+
+It is possible that the installation of Gitbook will not work since it requires root/administrator access. The `installGitbook` function will print an error message to help you install outside of R. On Mac and Linux systems, the following Unix command will install Gitbook:
+
+```
+sudo npm install gitbook -g
+```
+
+If you wish to build PDF versions of your book, install the PDF format using the following command:
+
+```
+sudo npm install gitbook-pdf -g
+```
+
+

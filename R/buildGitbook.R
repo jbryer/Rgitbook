@@ -6,23 +6,33 @@
 #' 
 #' @param source.dir location containing the source files.
 #' @param out.dir location of the built book.
-#' @param format the format of book. Options are gitbook (default website book),
-#'        pdf, or ebook.
+#' @param format the format of book. Options are pdf or ebook. If omitted, 
+#'        this will build a website.
 #' @param title Name of the book to generate, defaults to repo name
 #' @param intro Description of the book to generate
 #' @param github ID of github repo like : username/repo
 #' @param theme the book theme to use. This defaults to using a MathJax
 #'        enabled version of the default theme. Set to \code{NULL} to use the
 #'        default theme from gitbook package.
+#' @param buildRmd should \code{\link{buildRmd}} be called first.
+#' @param ... other parameters passed to \code{\link{buildRmd}}.
 #' @export
 buildGitbook <- function(source.dir=getwd(),
 						 out.dir=paste0(getwd(), '/_book'),
 						 theme=paste0(find.package('Rgitbook'), '/themes/mathjax'),
-						 format, title, intro, github) {
+						 buildRmd = TRUE,
+						 format, title, intro, github, ...) {
+	if(buildRmd) {
+		message('Building R markdown files...')
+		buildRmd(source.dir, ...)
+		message('R Markdown files successfully built!')
+	}
+	
 	checkForGitbook(quiet=TRUE)
 	
-	cmd <- paste0("gitbook build ", source.dir, " --output=", out.dir)
-	if(!missing(format)) { cmd <- paste0(cmd, " --format=", format) }
+	buildCmd <- 'build'
+	if(!missing(format)) { buildCmd <- format }
+	cmd <- paste0("gitbook ", buildCmd, " ", source.dir, " --output=", out.dir)
 	if(!missing(title)) { cmd <- paste0(cmd, " --theme=", theme) }
 	if(!missing(title)) { cmd <- paste0(cmd, ' --title="', title, '"') }
 	if(!missing(intro)) { cmd <- paste0(cmd, ' --intro="', intro, '"') }
