@@ -17,7 +17,7 @@ Depends:
 Imports:
     utils,knitr
 Suggests:
-    devtools
+    devtools,knitcitations
 Collate:
     'buildGitbook.R'
     'buildRmd.R'
