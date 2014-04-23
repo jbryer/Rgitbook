@@ -1,0 +1,9 @@
+# References
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+for(i in names(bib)) { print(i); citep(bib[i]) }
+```
+
+```{r bibliography, echo=FALSE, results='asis'}
+bibliography()
+```

@@ -26,8 +26,8 @@
   directory to markdown. The default is to traverse all
   subdirectories of the working directory looking for .Rmd
   files to process. This function will save a file in the
-  working directory called \code{.rmdbuild.Rda} that
-  contain the status of the last successful build. This
-  allows the function to only process changed files.
+  working directory called \code{.rmdbuild} that contain
+  the status of the last successful build. This allows the
+  function to only process changed files.
 }
 

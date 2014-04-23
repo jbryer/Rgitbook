@@ -8,7 +8,7 @@ opts_chunk$set(prompt=TRUE, comment='', results='markup')
 
 # Installation
 
-The `gitbook` R package is currently avaiable on [Github](http://github.com). The `devtools` package provides a function to install R packages directly from github.
+The `gitbook` R package is currently avaiable on [Github](http://github.com). The `devtools` `r citep(bib['devtools'])` package provides a function to install R packages directly from github.
 
 ```{r installPackage, eval=FALSE}
 devtools::install_github('jbryer/Rgitbook')

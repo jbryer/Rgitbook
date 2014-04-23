@@ -8,4 +8,4 @@
 	* [Gitbook](building/buildGitbook.md)
 	* [Viewing the Results](building/openGitbook.md)
 * [Publishing](publishing/publishGitbook.md)
-
+* [References](references.md)

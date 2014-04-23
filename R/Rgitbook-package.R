@@ -11,5 +11,6 @@
 #' @keywords R Markdown Gitbook Github
 #' @import utils
 #' @import knitr
+#' @import knitcitations
 NULL
 
