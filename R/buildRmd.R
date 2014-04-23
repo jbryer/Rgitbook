@@ -16,7 +16,8 @@
 #' @export
 buildRmd <- function(dir = getwd(), clean=FALSE, log.dir, log.ext='.txt', ...) {
 	dir <- normalizePath(dir)
-
+	bib <- NULL
+	
 	if(!exists('statusfile')) {
 		statusfile <- '.rmdbuild'
 		statusfile <- paste0(dir, '/', statusfile)
@@ -24,6 +25,16 @@ buildRmd <- function(dir = getwd(), clean=FALSE, log.dir, log.ext='.txt', ...) {
 	
 	rmds <- list.files(dir[1], '.rmd$', ignore.case=TRUE, recursive=TRUE, full.names=TRUE)
 	finfo <- file.info(rmds)
+	
+	referenceFiles <- c()
+
+	# Handle reference files separately. They will be built everytime to ensure
+	# the list is up-to-date
+	referenceFilesPos <- grep('references.Rmd$', rmds, ignore.case=TRUE)
+	if(length(referenceFilesPos) > 0) {
+		referenceFiles <- rmds[referenceFilesPos]
+		rmds <- rmds[-referenceFilesPos]
+	}
 	
 	if(!clean & file.exists(statusfile)) {
 		load(statusfile)
@@ -33,17 +44,31 @@ buildRmd <- function(dir = getwd(), clean=FALSE, log.dir, log.ext='.txt', ...) {
 		rmds <- c(newfiles, existing)
 	}
 	
+	if(length(referenceFiles) > 0) {
+		# This will ensure the reference files are built last.
+		rmds <- c(rmds, referenceFiles)
+	}
+	
 	knitenv <- new.env()
 	bibs <- list.files(dir[1], '.bib$', ignore.case=TRUE)
 	if(length(bibs) > 0) {
-		if(length(bibs) > 1) {
-			warning(paste0('More than one BibTex file found. Using ', bibs[1]))
+		newbib <- read.bibtex(paste0(dir, '/', bibs[1]))
+		if(clean | is.null(bib)) {
+			if(length(bibs) > 1) { #TODO: support more than one bib file
+				warning(paste0('More than one BibTex file found. Using ', bibs[1]))
+			}
+			cleanbib()
+			bib <- newbib
+		} else {
+			# This will any new references to the bib object
+			newbibs <- names(newbib)[!names(newbib) %in% names(bib)]
+			for(i in newbibs) {
+				bib[i] <- newbib[i]
+			}
 		}
-		with(knitenv, {
-			bib <- read.bibtex(paste0(dir, '/', bibs[1]))
-		})
+		assign('bib', bib, envir=knitenv)
 	}
-	
+
 	for(j in rmds) {
 		if(!missing(log.dir)) {
 			dir.create(log.dir, showWarnings=FALSE, recursive=TRUE)
@@ -63,6 +88,6 @@ buildRmd <- function(dir = getwd(), clean=FALSE, log.dir, log.ext='.txt', ...) {
 	rmdinfo <- finfo
 	last.run <- Sys.time()
 	last.R.version <- R.version
-	save(rmdinfo, last.run, last.R.version, file=statusfile)
+	save(rmdinfo, last.run, last.R.version, bib, file=statusfile)
 	invisible(TRUE)
 }

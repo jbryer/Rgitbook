@@ -1,0 +1,17 @@
+```{r knitsetup, echo=FALSE, results='hide', warning=FALSE, message=FALSE, cache=FALSE}
+opts_knit$set(base.dir='./', fig.path='', out.format='md')
+opts_chunk$set(prompt=TRUE, comment='', results='markup')
+# See yihui.name/knitr/options for more Knitr options.
+##### Put other setup R code here
+
+```
+
+# Citations
+
+`Rgitbook` uses the `knitcitations` `r citep(bib['knitcitations'])` to manage citations. You can use the `citep` and `citet` functions using the knitr inline syntax. For example:
+
+
+	The devtools ` r citep(bib['devtools']) ` package makes it easy to develop R packages.
+
+
+The `Rgitbook` will make a knitcitations bibliography object named `bib` available to all `.Rmd` files being processed. This file contains all the citations in the `references.bib` BibTeX file. 

@@ -3,8 +3,7 @@
 \title{This will build a gitbook from the source markdown files.}
 \usage{
   buildGitbook(source.dir = getwd(),
-    out.dir = paste0(getwd(), "/_book"),
-    theme = paste0(find.package("Rgitbook"), "/themes/mathjax"),
+    out.dir = paste0(getwd(), "/_book"), mathjax = TRUE,
     buildRmd = TRUE, format, title, intro, github, ...)
 }
 \arguments{
@@ -22,10 +21,8 @@
 
   \item{github}{ID of github repo like : username/repo}
 
-  \item{theme}{the book theme to use. This defaults to
-  using a MathJax enabled version of the default theme. Set
-  to \code{NULL} to use the default theme from gitbook
-  package.}
+  \item{mathjax}{if TRUE (default) include support for
+  MathJax.}
 
   \item{buildRmd}{should \code{\link{buildRmd}} be called
   first.}

@@ -11,7 +11,8 @@
 #' @export
 installGitbook <- function() {
 	cmds <- c('npm install gitbook -g',
-			  'npm install gitbook-pdf -g')
+			  'npm install gitbook-pdf -g',
+			  'npm install gitbook-plugin')
 	for(i in cmds) {
 		if(Sys.info()['sysname'] == 'Windows') {
 			cmd <- i

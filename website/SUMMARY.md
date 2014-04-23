@@ -3,6 +3,7 @@
 * [Installation](installation/installation.md)
 	* [Current Version](installation/gitbookInfo.md)
 * [Creating a New Gitbook](creating/newGitbook.md)
+	* [Citations](creating/citations.md)
 * [Building Gitbooks](building/building.md)
 	* [R Markdown](building/buildRmd.md)
 	* [Gitbook](building/buildGitbook.md)

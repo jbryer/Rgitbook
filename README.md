@@ -10,3 +10,9 @@ This R package can be downloaded directly from Github using the `devtools` packa
 ```
 devtools::install_github('jbryer/Rgitbook')
 ```
+
+#### Updates
+
+* 2014-04-23 - Added support for citations using the `knitcitations` package. The `newGitbook` will create a `references.Rmd` and `references.bib` file.
+* 2014-04-23 - Update to support new plugin architecture for using themes in Gitbook.
+

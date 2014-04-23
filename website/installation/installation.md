@@ -3,7 +3,7 @@
 
 # Installation
 
-The `gitbook` R package is currently avaiable on [Github](http://github.com). The `devtools` (<a href="http://CRAN.R-project.org/package=devtools">Wickham & Chang, 2013b</a>) package provides a function to install R packages directly from github.
+The `gitbook` R package is currently avaiable on [Github](http://github.com). The `devtools` (<a href="http://CRAN.R-project.org/package=devtools">Wickham & Chang, 2013</a>) package provides a function to install R packages directly from github.
 
 
 ```r

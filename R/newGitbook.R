@@ -21,6 +21,15 @@ newGitbook <- function(dir) {
 				   "#### by Your Name",
 				   "",
 				   "Replace with an introduction of your book.")
+	references.rmd <- c("# References",
+						"",
+						"```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}",
+						"# Uncomment to list all items in the BibTeX file.",
+						"#for(i in names(bib)) { print(i); citep(bib[i]) }",
+						"```",
+						"```{r bibliography, echo=FALSE, results='asis'}",
+						"bibliography()",
+						"```")
 	
 	if(missing(dir)) { stop('dir parameter is required.') }
 	checkForGitbook(quiet=TRUE)
@@ -50,6 +59,24 @@ newGitbook <- function(dir) {
 	writeLines(summary.md, f)
 	close(f)
 	
+	message('Writing references.rmd...')
+	f <- file('references.Rmd')
+	writeLines(references.rmd, f)
+	close(f)
+	
+	message('Writing references.bib...')
+	gitbook.ref <- bibentry(
+		bibtype = "Manual",
+		title = "Gitbook: Build beautiful interactive books using GitHub/Git and Markdown",
+		author = person("Samy Pessé and Aaron O'Mullan"),
+		year = 2014,
+		url = "http://www.gitbook.io/")
+	write.bibtex(c(knitr = citation("knitr")[1], 
+				   knitcitations = citation("knitcitations"),
+				   devtools = citation("devtools"),
+				   gitbook = gitbook.ref),
+				 file='references.bib')
+			
 	message(
 		'You can now open README.md and SUMMARY.md. Once you are done 
 editting SUMMARY.md, initGitbook() will create the file and folder 
