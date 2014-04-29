@@ -11,7 +11,7 @@ Gitbook.io is under active development. The `gitbookInfo` function will indicate
 ```
 
 ```
-A new version of gitbook is available. Version 0.2.4 installed, 0.3.0 available.
+gitbook is up-to-date with version 0.4.0
 ```
 
 

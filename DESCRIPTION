@@ -18,14 +18,3 @@ Imports:
     utils,knitr,knitcitations
 Suggests:
     devtools
-Collate:
-    'buildGitbook.R'
-    'buildRmd.R'
-    'checkForGitbook.R'
-    'gitbookInfo.R'
-    'initGitbook.R'
-    'newGitbook.R'
-    'openGitbook.R'
-    'publishGitbook.R'
-    'installGitbook.R'
-    'Rgitbook-package.R'

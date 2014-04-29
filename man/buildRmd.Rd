@@ -2,8 +2,7 @@
 \alias{buildRmd}
 \title{Builds markdown files from all Rmarkdown files in the given directories.}
 \usage{
-  buildRmd(dir = getwd(), clean = FALSE, log.dir,
-    log.ext = ".txt", ...)
+buildRmd(dir = getwd(), clean = FALSE, log.dir, log.ext = ".txt", ...)
 }
 \arguments{
   \item{dir}{root directory of the gitbook project.}
@@ -22,12 +21,12 @@
   \code{\link{knit}}.}
 }
 \description{
-  This function will build Rmarkdown files in the given
-  directory to markdown. The default is to traverse all
-  subdirectories of the working directory looking for .Rmd
-  files to process. This function will save a file in the
-  working directory called \code{.rmdbuild} that contain
-  the status of the last successful build. This allows the
-  function to only process changed files.
+This function will build Rmarkdown files in the given
+directory to markdown. The default is to traverse all
+subdirectories of the working directory looking for .Rmd
+files to process. This function will save a file in the
+working directory called \code{.rmdbuild} that contain the
+status of the last successful build. This allows the
+function to only process changed files.
 }
 

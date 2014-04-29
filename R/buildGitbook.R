@@ -8,18 +8,15 @@
 #' @param out.dir location of the built book.
 #' @param format the format of book. Options are pdf or ebook. If omitted, 
 #'        this will build a website.
-#' @param title Name of the book to generate, defaults to repo name
-#' @param intro Description of the book to generate
-#' @param github ID of github repo like : username/repo
-#' @param mathjax if TRUE (default) include support for MathJax.
 #' @param buildRmd should \code{\link{buildRmd}} be called first.
+#' @param gitbook.params other parameters passed to the gitbook command.
 #' @param ... other parameters passed to \code{\link{buildRmd}}.
 #' @export
 buildGitbook <- function(source.dir=getwd(),
 						 out.dir=paste0(getwd(), '/_book'),
-						 mathjax=TRUE,
 						 buildRmd = TRUE,
-						 format, title, intro, github, ...) {
+						 format,
+						 gitbook.params, ...) {
 	if(buildRmd) {
 		message('Building R markdown files...')
 		buildRmd(source.dir, ...)
@@ -31,10 +28,11 @@ buildGitbook <- function(source.dir=getwd(),
 	buildCmd <- 'build'
 	if(!missing(format)) { buildCmd <- format }
 	cmd <- paste0("gitbook ", buildCmd, " ", source.dir, " --output=", out.dir)
-	if(!missing(title)) { cmd <- paste0(cmd, ' --title="', title, '"') }
-	if(!missing(intro)) { cmd <- paste0(cmd, ' --intro="', intro, '"') }
-	if(!missing(github)) { cmd <- paste0(cmd, ' --github=', github) }
-	if(mathjax) { cmd <- paste0(cmd, " --plugins plugin-mathjax") }
+	#if(!missing(title)) { cmd <- paste0(cmd, ' --title="', title, '"') }
+	#if(!missing(intro)) { cmd <- paste0(cmd, ' --intro="', intro, '"') }
+	#if(!missing(github)) { cmd <- paste0(cmd, ' --github=', github) }
+	#if(mathjax) { cmd <- paste0(cmd, " --plugins plugin-mathjax") }
+	if(!missing(gitbook.params)) { cmd <- paste0(cmd, " ", gitbook.params)}
 	system(cmd)
 	
 	# Post-process hack to fix broken img urls.
