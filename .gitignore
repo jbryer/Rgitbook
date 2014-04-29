@@ -9,3 +9,5 @@
 /website/.rmdbuild
 
 /.DS_Store
+
+/node_modules/

@@ -8,6 +8,7 @@ The `gitbook` R package is currently avaiable on [Github](http://github.com). Th
 
 ```r
 > devtools::install_github("jbryer/Rgitbook")
+> require(Rgitbook)
 ```
 
 

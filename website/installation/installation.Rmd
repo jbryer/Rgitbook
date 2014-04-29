@@ -12,6 +12,7 @@ The `gitbook` R package is currently avaiable on [Github](http://github.com). Th
 
 ```{r installPackage, eval=FALSE}
 devtools::install_github('jbryer/Rgitbook')
+require(Rgitbook)
 ```
 
 The [Gitbook.io](http://gitbook.io) framework is built using [Node.js](http://nodejs.org/). Installers are available for most major platforms and can be downloaded from the Node.js website at [http://nodejs.org/download/](http://nodejs.org/download/).

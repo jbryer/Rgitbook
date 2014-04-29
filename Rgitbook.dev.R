@@ -14,7 +14,7 @@ installGitbook()
 demo('gitbook') # This will create a test project
 
 # Build the Gitbook website
-buildGitbook('website') # This will call buildRmd first
+buildGitbook('website')
 openGitbook()
 publishGitbook('jbryer/Rgitbook')
 
