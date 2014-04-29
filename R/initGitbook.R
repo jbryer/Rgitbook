@@ -33,7 +33,12 @@ initGitbook <- function(dir=getwd()) {
 		file <- file(rmd)
 		lines <- readLines(file)
 		close(file)
-		lines <- c(knitr.header, lines)
+		
+		#if the knitsetup block isn't already in the file, then add it
+		if(grepl("r knitsetup.+\n", lines)) {
+			lines <- c(knitr.header, lines)
+		}
+		
 		file <- file(rmd)
 		writeLines(lines, file(rmd))
 		close(file)
