@@ -16,7 +16,7 @@ initGitbook <- function(dir=getwd()) {
 	mdfiles <- list.files(dir, '*.md', recursive=TRUE, full.names=TRUE)
 	mdfiles <- mdfiles[-c(grep('README.md$', mdfiles),
 						  grep('SUMMARY.md$', mdfiles))]
-	mdfiles2 <- gsub('.md$', '.Rmd', mdfiles)
+	mdfiles2 <- gsub('/.md$', '.Rmd', mdfiles)
 	file.rename(mdfiles, mdfiles2)
 	
 	knitr.header <- c( # TODO: make a package option?
