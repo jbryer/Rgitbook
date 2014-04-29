@@ -16,7 +16,7 @@ initGitbook <- function(dir=getwd()) {
 	mdfiles <- list.files(dir, '*.md', recursive=TRUE, full.names=TRUE)
 	mdfiles <- mdfiles[-c(grep('README.md$', mdfiles),
 						  grep('SUMMARY.md$', mdfiles))]
-	mdfiles2 <- gsub('.md$', '.Rmd', mdfiles)
+	mdfiles2 <- gsub('/.md$', '.Rmd', mdfiles)
 	file.rename(mdfiles, mdfiles2)
 	
 	knitr.header <- c( # TODO: make a package option?
@@ -33,7 +33,14 @@ initGitbook <- function(dir=getwd()) {
 		file <- file(rmd)
 		lines <- readLines(file)
 		close(file)
-		lines <- c(knitr.header, lines)
+		
+		#if the knitsetup block isn't already in the file, then add it
+		suppressWarnings(
+			if(grepl("r knitsetup.+\n", lines)) {
+				lines <- c(knitr.header, lines)
+			}
+		)
+		
 		file <- file(rmd)
 		writeLines(lines, file(rmd))
 		close(file)
