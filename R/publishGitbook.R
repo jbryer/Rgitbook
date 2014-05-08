@@ -10,14 +10,25 @@
 #' @param repo the github repository. Should be of form username/repository
 #' @param out.dir location of the built gitbook. 
 #' @param message commit message.
+#' @param CNAME web address to be added to CNAME file on github for custom domain names
 #' 
 #' @export
 publishGitbook <- function(repo, 
 						   out.dir=paste0(getwd(), '/_book'),
-						   message='Update built gitbook') {
+						   message='Update built gitbook',
+               CNAME = ""
+               ) {
 	test <- system('git --version', ignore.stderr=TRUE, ignore.stdout=TRUE, show.output.on.console=FALSE)
 	if(test != 0) { stop('Git does not appear to be installed.')}
-	cmd <- paste0(
+	
+  
+  if(CNAME != ""){
+	  fileConn<-file(paste0(out.dir,"/CNAME"))
+	  writeLines(CNAME, fileConn)
+	  close(fileConn)
+	}
+  
+  cmd <- paste0(
 		"cd ", out.dir, " \n",
 		"git init \n",
 		"git commit --allow-empty -m '", message,"' \n",
