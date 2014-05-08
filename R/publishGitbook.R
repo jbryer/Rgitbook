@@ -23,7 +23,7 @@ publishGitbook <- function(repo,
 	
   
   if(CNAME != ""){
-	  fileConn<-file("CNAME")
+	  fileConn<-file(paste0(out.dir,"/CNAME"))
 	  writeLines(CNAME, fileConn)
 	  close(fileConn)
 	}
