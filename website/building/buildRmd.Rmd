@@ -22,4 +22,4 @@ There are a number of parameters for the `buildRmd` function.
 * `clean` (default is `FALSE`) - If `TRUE`, all `.Rmd` files will be built even if they have not changed since the last build.
 * `log.dir` - If specified, the output from the `knit` process will be saved to a log file instead of the console. A seperate log file for each `.Rmd` file will be created.
 * `log.ext` (default is `.txt`) - The file extension for log files if used.
-* `...` Other parmaters passed to the `knit` function.
+* `...` Other paramaters passed to the `knit` function.
