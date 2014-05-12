@@ -79,7 +79,7 @@ newGitbook <- function(dir) {
 			
 	message(
 		'You can now open README.md and SUMMARY.md. Once you are done 
-editting SUMMARY.md, initGitbook() will create the file and folder 
+editing SUMMARY.md, initGitbook() will create the file and folder 
 structure for your new Gitbook.')
 	message(paste0('Current working directory: ', getwd()))
 	invisible()
