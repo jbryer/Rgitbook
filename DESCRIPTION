@@ -18,3 +18,4 @@ Imports:
     utils,knitr,knitcitations
 Suggests:
     devtools
+Roxygen: list(wrap=FALSE)

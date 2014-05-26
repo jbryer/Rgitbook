@@ -14,7 +14,7 @@ installGitbook()
 demo('gitbook') # This will create a test project
 
 # Build the Gitbook website
-buildGitbook('website')
+buildGitbook('website', clean=FALSE)
 openGitbook()
 publishGitbook('jbryer/Rgitbook')
 
