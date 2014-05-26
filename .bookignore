@@ -1,0 +1,8 @@
+*.RMD
+*.rmd
+*.Rmd
+log/
+*.R
+*.Rproj
+.rmdbuild
+
