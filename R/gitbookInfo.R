@@ -7,7 +7,10 @@
 #' @export
 gitbookInfo <- function() {
 	checkForGitbook(quiet=TRUE)
-	installed <- system('gitbook --version', intern=TRUE)
+  listInstalledModules <- system("npm list -g", intern=TRUE);
+	gitbookIndex <- grep("gitbook@", listInstalledModules, fixed=TRUE);
+	position <- regexpr("gitbook@", listInstalledModules[gitbookIndex], fixed=TRUE);
+	installed <- substr( listInstalledModules[gitbookIndex], position+8, nchar(listInstalledModules[gitbookIndex]) );
 	current <- system('npm view gitbook version', intern=TRUE)
 	if(length(current) > 0) {
 		current <- current[1]
