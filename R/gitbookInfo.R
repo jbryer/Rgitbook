@@ -7,7 +7,8 @@
 #' @export
 gitbookInfo <- function() {
 	checkForGitbook(quiet=TRUE)
-  listInstalledModules <- system("npm list -g", intern=TRUE);
+	# Use npm instead of gitbook.
+  	listInstalledModules <- system("npm list -g", intern=TRUE);
 	gitbookIndex <- grep("gitbook@", listInstalledModules, fixed=TRUE);
 	position <- regexpr("gitbook@", listInstalledModules[gitbookIndex], fixed=TRUE);
 	installed <- substr( listInstalledModules[gitbookIndex], position+8, nchar(listInstalledModules[gitbookIndex]) );
