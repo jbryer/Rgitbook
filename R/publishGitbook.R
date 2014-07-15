@@ -24,6 +24,6 @@ publishGitbook <- function(repo,
 		"git checkout -b gh-pages \n",
 		"git add . \n",
 		"git commit -am '", message, "' \n",
-		"git push git@github.com:", repo, " gh-pages --force ")
+		"git push https://github.com/", repo, " gh-pages --force ")
 	system(cmd)
 }
