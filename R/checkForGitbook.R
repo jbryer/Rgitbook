@@ -6,7 +6,7 @@
 #' @param quiet logical indicating whether messages should be printed.
 #' @export
 checkForGitbook <- function(quiet=FALSE) {
-	if(system('npm', ignore.stdout=TRUE) != 0) {
+	if(system('npm version', ignore.stdout=TRUE) != 0) {
 		stop("Cannot find node.js. You can install it from http://nodejs.org/download/")
 	}
 	if(system('gitbook', ignore.stdout=TRUE) != 0) {
