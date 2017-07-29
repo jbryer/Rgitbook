@@ -14,16 +14,16 @@
 #' @export
 publishGitbook <- function(repo, 
 						   out.dir=paste0(getwd(), '/_book'),
-						   message='Update built gitbook') {
+						   msg='Update built gitbook') {
 	test <- system('git --version', ignore.stderr=TRUE, ignore.stdout=TRUE, show.output.on.console=FALSE)
 	if(test != 0) { stop('Git does not appear to be installed.')}
 	cmd <- paste0(
 		"cd ", out.dir, " \n",
 		"git init \n",
-		"git commit --allow-empty -m '", message,"' \n",
+		"git commit --allow-empty -m '", msg,"1' \n",
 		"git checkout -b gh-pages \n",
 		"git add . \n",
-		"git commit -am '", message, "' \n",
-		"git push git@github.com:", repo, " gh-pages --force ")
+		"git commit -a -m '", msg, "2' \n",
+		"git push https://github.com/", repo, " gh-pages --force ")
 	system(cmd)
 }
